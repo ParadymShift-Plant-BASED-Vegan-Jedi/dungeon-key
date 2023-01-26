@@ -1,6 +1,8 @@
 $initVar[server;kv;0]
 $if[$getServerVar[kv]==0]
-    $sendMessage[The secret key hasn't been found yet! Keep searching to find the key and then you can try to guess the combination code.]
+    $sendMessage[The secret key hasn't been found yet! Keep searching to find the key and then you can try to guess the combination code.
+    
+Note: The key resets every time someone successfully escapes the dungeon.]
 $else
     $if[$message[1]==$getServerVar[kc]]
         $sendMessage[You type the combination into the console.
@@ -8,9 +10,13 @@ A green indicator shows and it unlocks.
 
 Congratulations! You've managed to unlock the cage holding the key! 
 
-You use the key to unlock your shackles, next you unlock your cell door. You're now free to roam the server until you get caught!]
+You use the key to unlock your shackles, next you unlock your cell door. As you unlock your cell door, the key crumbles in your hands. Turns out, it was made out of wax and was only good for two uses. 
+
+You're now free to roam the server until you get caught!]
     $takeRoles[$authorID;903678911391612958]
     $giveRoles[$authorID;784801431872995382]
+    $setServerVar[kv;0]
+    $setServerVar[kc;$randomString[4]]
     $else
         $sendMessage[You type the combination into the console.
 A red indicator shows and it doesn't unlock.]
