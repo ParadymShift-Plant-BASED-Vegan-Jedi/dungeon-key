@@ -1,0 +1,19 @@
+$if[$getServerVar[kv]==0]
+    $sendMessage[The secret key hasn't been found yet! Keep searching to find the key and then you can try to guess the combination code.]
+$else
+    $if[$message[1]==$getServerVar[kc]]
+        $sendMessage[You type the combination into the console.
+A green indicator shows and it unlocks. 
+
+Congratulations! You've managed to unlock the cage holding the key! 
+
+You use the key to unlock your shackles, next you unlock your cell door. You're now free to roam the server until you get caught!]
+    $takeRoles[$authorID;903678911391612958]
+    $giveRoles[$authorID;784801431872995382]
+    $else
+        $sendMessage[You type the combination into the console.
+A red indicator shows and it doesn't unlock.]
+        $onlyIf[$charCount[$message[1]]==4;Try only including exactly four characters in the password next time!
+HINT: The password only contains numbers and letters but IS case-sensitive.]
+    $endIf
+$endIf
