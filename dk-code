@@ -1,3 +1,4 @@
+$initVar[server;kv;0]
 $if[$getServerVar[kv]==0]
     $sendMessage[The secret key hasn't been found yet! Keep searching to find the key and then you can try to guess the combination code.]
 $else
