@@ -1,5 +1,10 @@
 $let[keyval;$random[1;10000]]
 $initVar[server;kv;0]
+$onlyIf[$getServerVar[kv]==0;Someone has already found the key! Try to guess the combination with 
+
+!secretkey #LEFT#your guess here#RIGHT#
+
+HINT: The combination is 4-characters and only consists of numbers and letters, but IS case-sensitive!]
 $if[$get[keyval]==1]
     $setServerVar[kv;1]
     $sendMessage[You press on a particular stone on the wall and it reveals a hidden cage.
@@ -14,4 +19,3 @@ HINT: The combination only consists of numbers and letters, but is CASE-SENSITIV
 $else
     $sendMessage[You search desperately but all you find is $randomText[dungeon rats;dust;cold stone;damp moss;dripping water;iron bars;more prisoners;straw bedding;rusty silverware;dirty plates;torn rags;a bucket of water;the dungeon master;a chilling breeze;dark chambers]. Better luck next time!]
 $endIf
-    
